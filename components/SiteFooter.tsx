@@ -23,6 +23,8 @@ export default function SiteFooter() {
           <ul>
             <li><Link href="/about">About NRS Group</Link></li>
             <li><Link href="/founder">Our Founder</Link></li>
+            <li><Link href="/businesses">Our Businesses</Link></li>
+            <li><Link href="/careers">Careers</Link></li>
             <li><Link href="/invest">Invest with Us</Link></li>
             <li><Link href="/upcoming-plan">Upcoming Plan</Link></li>
             <li><Link href="/contact">Contact</Link></li>

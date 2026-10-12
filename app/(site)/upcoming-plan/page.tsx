@@ -16,6 +16,8 @@ export default function UpcomingPlan() {
         title="Upcoming plan by NRS Group"
         intro="We are finalising the next phase of NRS Group's growth. Details of new projects will be published here soon."
         crumbs={[{ href: "/upcoming-plan", label: "Upcoming Plan" }]}
+        image="/images/projects/hero.jpg"
+        art="compass"
       />
       <section className="section">
         <div className="container narrow">

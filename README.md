@@ -10,6 +10,8 @@ Built with Next.js 15 (App Router) and plain CSS.
 | Home: hero with **Investor / Creator** form, stats, brands, verticals, Tarapith, vision, founder | `/` | `app/(site)/page.tsx` |
 | About: story, vision/mission/philosophy, values, verticals, group companies | `/about` | `app/(site)/about/page.tsx` |
 | Founder: R. P. Verma's bio, principles and journey timeline | `/founder` | `app/(site)/founder/page.tsx` |
+| Businesses: six verticals, plus a page per vertical | `/businesses`, `/businesses/[slug]` | `app/(site)/businesses/` |
+| Careers: career areas, why NRS, open applications | `/careers` | `app/(site)/careers/page.tsx` |
 | Our Brands, plus a detail page per brand (Royal Palace, Bistro Y, HakkaLand) | `/brands`, `/brands/[slug]` | `app/(site)/brands/` |
 | Projects, plus detail pages (Tarapith, Sundarban) and Coming Soon cards | `/projects`, `/projects/[slug]` | `app/(site)/projects/` |
 | Invest: why invest, enquiry form, process, FAQ | `/invest` | `app/(site)/invest/page.tsx` |
@@ -17,7 +19,7 @@ Built with Next.js 15 (App Router) and plain CSS.
 | Blank "Upcoming plan by NRS Group" page | `/upcoming-plan` | `app/(site)/upcoming-plan/page.tsx` |
 | Lead list (CRM) with status new / contacted / meeting / closed | `/admin` | `app/admin/` |
 
-Property imagery is drawn as gold line illustrations (`components/Art.tsx`) until NRS supplies real photos.
+Every image is a **photo slot** (`components/Photo.tsx`): drop a JPG at the path listed in `public/images/README.md` and it replaces the gold line illustration on the next build.
 
 **All copy and facts live in `lib/content.ts`.** Items still awaiting client confirmation are marked
 `confirmed: false` (hidden from the site) or `TODO(meeting)`. Edit that file after the meeting.
