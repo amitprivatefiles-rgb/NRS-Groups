@@ -3,17 +3,21 @@
 Group website for NRS Group (Kolkata): hospitality, food & dining, real estate, construction and leisure.
 Built with Next.js 15 (App Router) and plain CSS.
 
-## What's on the site
+## Pages
 
-| Section | Where |
-|---|---|
-| Hero with **Investor / Creator** enquiry form | `app/page.tsx`, `components/LeadForm.tsx` |
-| About: story, vision, mission, philosophy, key numbers | `app/page.tsx` |
-| Current businesses with "Visit website" links | `app/page.tsx` |
-| Upcoming projects (Tarapith featured, Sundarban, Coming Soon) | `app/page.tsx` |
-| Founder: R. P. Verma, quote and timeline | `app/page.tsx` |
-| Blank "Upcoming plan by NRS Group" page | `app/upcoming-plan/page.tsx` |
-| Lead list (CRM) with status new / contacted / meeting / closed | `/admin` → `app/admin/` |
+| Page | Route | File |
+|---|---|---|
+| Home: hero with **Investor / Creator** form, stats, brands, verticals, Tarapith, vision, founder | `/` | `app/(site)/page.tsx` |
+| About: story, vision/mission/philosophy, values, verticals, group companies | `/about` | `app/(site)/about/page.tsx` |
+| Founder: R. P. Verma's bio, principles and journey timeline | `/founder` | `app/(site)/founder/page.tsx` |
+| Our Brands, plus a detail page per brand (Royal Palace, Bistro Y, HakkaLand) | `/brands`, `/brands/[slug]` | `app/(site)/brands/` |
+| Projects, plus detail pages (Tarapith, Sundarban) and Coming Soon cards | `/projects`, `/projects/[slug]` | `app/(site)/projects/` |
+| Invest: why invest, enquiry form, process, FAQ | `/invest` | `app/(site)/invest/page.tsx` |
+| Contact: head office, brand contacts, social | `/contact` | `app/(site)/contact/page.tsx` |
+| Blank "Upcoming plan by NRS Group" page | `/upcoming-plan` | `app/(site)/upcoming-plan/page.tsx` |
+| Lead list (CRM) with status new / contacted / meeting / closed | `/admin` | `app/admin/` |
+
+Property imagery is drawn as gold line illustrations (`components/Art.tsx`) until NRS supplies real photos.
 
 **All copy and facts live in `lib/content.ts`.** Items still awaiting client confirmation are marked
 `confirmed: false` (hidden from the site) or `TODO(meeting)`. Edit that file after the meeting.

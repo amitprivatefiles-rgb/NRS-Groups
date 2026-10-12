@@ -1,34 +1,74 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const links = [
-  { href: "/#about", label: "About" },
-  { href: "/#businesses", label: "Businesses" },
-  { href: "/#projects", label: "Upcoming" },
-  { href: "/#founder", label: "Founder" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/about", label: "About" },
+  { href: "/founder", label: "Founder" },
+  { href: "/brands", label: "Our Brands" },
+  { href: "/projects", label: "Projects" },
+  { href: "/invest", label: "Invest" },
+  { href: "/contact", label: "Contact" },
 ];
 
-export default function SiteHeader() {
+export function Logo({ footer }: { footer?: boolean }) {
   return (
-    <header className="site-header">
+    <span className={`brand${footer ? " brand--footer" : ""}`}>
+      <span className="brand__mark">NRS</span>
+      <span className="brand__name">Group</span>
+    </span>
+  );
+}
+
+export default function SiteHeader() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
+      <div className="topbar">
+        <div className="container topbar__inner">
+          <span>Hospitality · Food & Dining · Real Estate · Leisure</span>
+          <span className="topbar__contact">
+            <a href="tel:+917044470888">+91 70444 70888</a>
+            <a href="mailto:info@nrsgroups.in">info@nrsgroups.in</a>
+          </span>
+        </div>
+      </div>
       <div className="container site-header__inner">
-        <Link href="/" className="brand" aria-label="NRS Group home">
-          <span className="brand__mark">NRS</span>
-          <span className="brand__name">Group</span>
+        <Link href="/" aria-label="NRS Group home">
+          <Logo />
         </Link>
-        <input type="checkbox" id="nav-toggle" className="nav-toggle" aria-hidden="true" />
-        <label htmlFor="nav-toggle" className="nav-toggle__btn" aria-label="Open menu">
+        <button
+          type="button"
+          className={`nav-toggle${open ? " is-open" : ""}`}
+          aria-expanded={open}
+          aria-controls="site-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((o) => !o)}
+        >
           <span />
-        </label>
-        <nav className="site-nav" aria-label="Main">
+        </button>
+        <nav id="site-nav" className={`site-nav${open ? " is-open" : ""}`} aria-label="Main">
           {links.map((l) => (
-            <a key={l.href} href={l.href}>
+            <Link key={l.href} href={l.href} aria-current={pathname.startsWith(l.href) ? "page" : undefined}>
               {l.label}
-            </a>
+            </Link>
           ))}
-          <a href="/#invest" className="btn btn--gold btn--sm">
+          <Link href="/invest#invest" className="btn btn--gold btn--sm">
             Invest with us
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
