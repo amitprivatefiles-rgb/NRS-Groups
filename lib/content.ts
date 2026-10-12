@@ -242,6 +242,7 @@ export type Brand = {
   hours?: string;
   url?: string;
   gallery?: string[];
+  photoNote?: string;
   confirmed: boolean;
 };
 
@@ -287,7 +288,7 @@ export const brands: Brand[] = [
     ],
     phone: "+91 70444 70888",
     url: "https://nrsroyalpalace.com",
-    gallery: ["The palace facade", "Sea-facing rooms", "The Terrace", "The Lawn", "The pool"],
+    gallery: ["The palace by night", "Sea-facing rooms", "The Terrace", "Weddings on the lawn", "The pool"],
     confirmed: true,
   },
   {
@@ -323,7 +324,8 @@ export const brands: Brand[] = [
     ],
     hours: "12 PM – 12 AM, daily",
     url: "https://bistrobars.com",
-    gallery: ["The room", "The bar", "Signature plates", "Live music nights"],
+    gallery: ["The lounge", "The bar", "Bar seating", "The spirits shelf"],
+    photoNote: "Photographed at Bistro Y inside NRS Royal Palace, Puri.",
     confirmed: true,
   },
   {

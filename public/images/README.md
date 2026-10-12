@@ -3,6 +3,9 @@
 Every image on the site is a **slot**. If a JPG exists at the path below, it is shown. If not, a gold line illustration fills the space.
 Add photos here (landscape, at least 2000 px wide, compressed under about 500 KB) and rebuild.
 
+**Filled so far:** real photos taken from NRS's own sites, the `nrs-royal-palace` and `hakkaland` repositories: Royal Palace exterior, rooms, dining, events, pool and team; the founder's portrait; HakkaLand food and interiors; brand logos. Bistro Y photos are from the Bistro Y outlet inside NRS Royal Palace, and the page says so.
+**Still illustrated:** Tarapith and Sundarban (not built yet), plus the construction, real estate, leisure and business-services verticals. Add real site photos or renders when available.
+
 Source material: the shared Google Drive folder **NRS ROYAL** (`PHOTOS`, `VIDEO`, `VIDEO 02`) and the **Drone** folder.
 
 ## Brands

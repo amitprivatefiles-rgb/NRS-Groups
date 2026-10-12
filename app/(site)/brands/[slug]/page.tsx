@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BrandCard, CtaBand, FactRow, Gallery, PageHero, QuoteBand, SectionHead } from "@/components/Blocks";
 import { External } from "@/components/Icons";
-import Photo from "@/components/Photo";
+import Photo, { BrandLogo } from "@/components/Photo";
 import { founder, liveBrands } from "@/lib/content";
 
 type Params = Promise<{ slug: string }>;
@@ -42,6 +42,7 @@ export default async function BrandPage({ params }: { params: Params }) {
         art={brand.art}
         tall
       >
+        <BrandLogo slug={brand.slug} name={brand.name} className="brand-logo--hero" />
         <div className="btn-row">
           {brand.url && (
             <a className="btn btn--gold" href={brand.url} target="_blank" rel="noopener noreferrer">
@@ -153,7 +154,7 @@ export default async function BrandPage({ params }: { params: Params }) {
       {brand.gallery && (
         <section className="section">
           <div className="container">
-            <SectionHead eyebrow="Gallery" title={`Inside ${brand.name}`} />
+            <SectionHead eyebrow="Gallery" title={`Inside ${brand.name}`} intro={brand.photoNote} />
             <Gallery base={`${base}/gallery`} art={brand.art} labels={brand.gallery} />
           </div>
         </section>

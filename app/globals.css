@@ -3658,3 +3658,57 @@ a.vertical-row .arrow {
     grid-column: span 2;
   }
 }
+
+/* ---------- Real photography ---------- */
+.hero__bg::after {
+  background: linear-gradient(100deg, rgba(14, 26, 43, 0.95) 0%, rgba(14, 26, 43, 0.78) 42%, rgba(14, 26, 43, 0.35) 100%);
+}
+.page-hero__bg::after {
+  background: linear-gradient(100deg, rgba(14, 26, 43, 0.94) 0%, rgba(14, 26, 43, 0.75) 50%, rgba(14, 26, 43, 0.4) 100%);
+}
+.hero::after {
+  z-index: 1;
+}
+.brand-logo {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+.hero__brands a {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.hero__brands a:hover {
+  opacity: 1;
+}
+.hero__brands .brand-logo {
+  max-height: 44px;
+  width: auto;
+}
+.brand-logo--hero {
+  max-height: 96px;
+  width: auto;
+  margin-top: 32px;
+}
+.hero-index .brand-logo {
+  max-height: 52px;
+  width: auto;
+  margin-bottom: 14px;
+}
+@media (max-width: 600px) {
+  .hero__brands .brand-logo {
+    max-height: 34px;
+  }
+}
+.hero-index .brand-logo,
+.brand-logo--hero {
+  align-self: flex-start;
+  width: auto;
+  object-fit: contain;
+}
+.hero-index .brand-logo {
+  height: 52px;
+  max-height: none;
+}

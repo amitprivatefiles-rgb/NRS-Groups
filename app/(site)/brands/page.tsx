@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandShowcase, CtaBand, PageHero, QuoteBand, SectionHead, StatBand } from "@/components/Blocks";
 import { Arrow } from "@/components/Icons";
+import { BrandLogo } from "@/components/Photo";
 import { group, liveBrands, projects } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function BrandsPage() {
           {brands.map((b) => (
             <li key={b.slug}>
               <Link href={`/brands/${b.slug}`}>
+                <BrandLogo slug={b.slug} name={b.name} />
                 <span>{b.vertical}</span>
                 <strong>{b.name}</strong>
                 <em>{b.location}</em>

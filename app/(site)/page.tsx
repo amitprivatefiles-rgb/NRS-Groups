@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BrandShowcase, CtaBand, FactRow, Marquee, ProjectCard, QuoteBand, SectionHead, StatBand } from "@/components/Blocks";
 import { Arrow, VerticalIcon } from "@/components/Icons";
 import LeadForm from "@/components/LeadForm";
-import Photo from "@/components/Photo";
+import Photo, { BrandLogo } from "@/components/Photo";
 import { approach, destinations, founder, group, liveBrands, projects, verticals } from "@/lib/content";
 
 export default function Home() {
@@ -32,8 +32,8 @@ export default function Home() {
             <div className="hero__brands">
               <span>Home of</span>
               {brands.map((b) => (
-                <Link key={b.slug} href={`/brands/${b.slug}`}>
-                  {b.name}
+                <Link key={b.slug} href={`/brands/${b.slug}`} aria-label={b.name}>
+                  <BrandLogo slug={b.slug} name={b.name} />
                 </Link>
               ))}
             </div>

@@ -32,3 +32,11 @@ export default function Photo({
     </div>
   );
 }
+
+// Brand logo (light artwork, for dark backgrounds). Renders nothing if absent.
+export function BrandLogo({ slug, name, className = "" }: { slug: string; name: string; className?: string }) {
+  const src = `/images/brands/${slug}/logo.png`;
+  if (!existsSync(path.join(process.cwd(), "public", src))) return null;
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={src} alt={`${name} logo`} className={`brand-logo ${className}`} loading="lazy" />;
+}
