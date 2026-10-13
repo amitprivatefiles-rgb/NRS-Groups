@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     description: "Hospitality, food & dining, real estate and leisure since 2014. Invest with NRS Group.",
     type: "website",
     locale: "en_IN",
+    images: [{ url: "/images/brand/nrs-emblem.png", width: 600, height: 292, alt: "NRS Group" }],
   },
 };
 

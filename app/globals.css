@@ -3712,3 +3712,22 @@ a.vertical-row .arrow {
   height: 52px;
   max-height: none;
 }
+
+/* ---------- Group emblem ---------- */
+.brand__emblem {
+  height: 40px;
+  width: auto;
+  margin-right: 4px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+.brand--footer .brand__emblem {
+  height: 52px;
+}
+@media (max-width: 600px) {
+  .brand__emblem {
+    height: 32px;
+  }
+  .brand__mark {
+    font-size: 1.6rem;
+  }
+}

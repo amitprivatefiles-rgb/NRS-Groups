@@ -47,6 +47,8 @@ const menus: Menu[] = [
 export function Logo({ footer }: { footer?: boolean }) {
   return (
     <span className={`brand${footer ? " brand--footer" : ""}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/images/brand/nrs-emblem.png" alt="" className="brand__emblem" width={600} height={292} />
       <span className="brand__mark">NRS</span>
       <span className="brand__name">Group</span>
     </span>
