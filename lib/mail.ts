@@ -1,6 +1,6 @@
 import "server-only";
 import nodemailer from "nodemailer";
-import { fieldLabel, type Lead } from "./leads";
+import { fieldLabel, kindLabel, type Lead } from "./leads";
 
 export type Attachment = { filename: string; content: Buffer };
 
@@ -23,9 +23,10 @@ export async function sendLeadNotification(lead: Lead, attachment?: Attachment) 
     auth: process.env.SMTP_USER ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS } : undefined,
   });
 
-  const kindLabel = lead.kind === "investor" ? "investor" : "creator";
+  const kind = lead.kind;
+  const site = lead.details.source ?? "NRS website";
   const rows: [string, string][] = [
-    ["Type", lead.kind === "investor" ? "Investor" : "Creator (idea)"],
+    ["Type", kindLabel(lead.kind)],
     ["Name", lead.name],
     ["Phone", lead.phone],
     ["Email", lead.email || "—"],
@@ -39,9 +40,9 @@ export async function sendLeadNotification(lead: Lead, attachment?: Attachment) 
     from: process.env.LEAD_NOTIFY_FROM ?? process.env.SMTP_USER,
     to,
     replyTo: lead.email || undefined,
-    subject: `New ${kindLabel} enquiry from NRS website: ${lead.name}`,
+    subject: `New ${kind} enquiry from ${site}: ${lead.name}`,
     text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
-    html: `<h2 style="font-family:sans-serif">New ${kindLabel} enquiry from NRS website</h2>
+    html: `<h2 style="font-family:sans-serif">New ${kind} enquiry from ${escapeHtml(site)}</h2>
       <table style="font-family:sans-serif;border-collapse:collapse">${rows
         .map(
           ([k, v]) =>

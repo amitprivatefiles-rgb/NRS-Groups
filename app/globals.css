@@ -3731,3 +3731,7 @@ a.vertical-row .arrow {
     font-size: 1.6rem;
   }
 }
+.pill--partner {
+  background: #e7f2ea;
+  color: #23633a;
+}

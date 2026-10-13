@@ -2,7 +2,8 @@ import { options } from "./content";
 
 export const LEAD_STATUSES = ["new", "contacted", "meeting", "closed"] as const;
 export type LeadStatus = (typeof LEAD_STATUSES)[number];
-export type LeadKind = "investor" | "creator";
+export const LEAD_KINDS = ["investor", "creator", "partner"] as const;
+export type LeadKind = (typeof LEAD_KINDS)[number];
 
 export type Lead = {
   id: string;
@@ -47,9 +48,34 @@ export const creatorFields: Record<string, FieldSpec> = {
   deckLink: { label: "Deck link", max: 500 },
 };
 
+// General enquiries from the R. P. Verma personal site (and any other partner form).
+export const PARTNER_ENQUIRIES = [
+  "Invest in a project",
+  "Land / JV partnership",
+  "Business idea",
+  "Media / interview",
+  "Speaking / event invite",
+  "Careers",
+  "Other",
+] as const;
+
+export const partnerFields: Record<string, FieldSpec> = {
+  enquiryType: { label: "Enquiry type", required: true, oneOf: PARTNER_ENQUIRIES },
+  organisation: { label: "Organisation", max: 120 },
+  city: { label: "City", max: 80 },
+  message: { label: "Message", required: true, max: 2000 },
+};
+
+const fieldsFor = (kind: LeadKind) =>
+  kind === "investor" ? investorFields : kind === "creator" ? creatorFields : partnerFields;
+
 export function fieldLabel(kind: LeadKind, key: string) {
-  const spec = (kind === "investor" ? investorFields : creatorFields)[key];
-  return spec?.label ?? key;
+  if (key === "source") return "Source";
+  return fieldsFor(kind)[key]?.label ?? key;
+}
+
+export function kindLabel(kind: LeadKind) {
+  return kind === "investor" ? "Investor" : kind === "creator" ? "Creator (idea)" : "Partner / general";
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -67,7 +93,7 @@ function str(form: FormData, key: string) {
 export function validateLead(form: FormData): ValidationResult {
   const errors: Record<string, string> = {};
   const kind = str(form, "kind");
-  if (kind !== "investor" && kind !== "creator") {
+  if (!(LEAD_KINDS as readonly string[]).includes(kind)) {
     return { ok: false, errors: { form: "Unknown form type." } };
   }
 
@@ -76,10 +102,10 @@ export function validateLead(form: FormData): ValidationResult {
   const email = str(form, "email");
   if (!name || name.length > 120) errors.name = "Please enter your name.";
   if (!PHONE_RE.test(phone)) errors.phone = "Please enter a valid phone number.";
-  if (kind === "investor" && !EMAIL_RE.test(email)) errors.email = "Please enter a valid email.";
-  if (kind === "creator" && email && !EMAIL_RE.test(email)) errors.email = "Please enter a valid email.";
+  const emailRequired = kind !== "creator";
+  if ((emailRequired || email) && !EMAIL_RE.test(email)) errors.email = "Please enter a valid email.";
 
-  const specs = kind === "investor" ? investorFields : creatorFields;
+  const specs = fieldsFor(kind as LeadKind);
   const details: Record<string, string> = {};
   for (const [key, spec] of Object.entries(specs)) {
     const values = spec.multi
@@ -105,6 +131,10 @@ export function validateLead(form: FormData): ValidationResult {
     errors.deckLink = "Deck link must start with http:// or https://";
   }
 
+  // Which website the lead came from, e.g. "R. P. Verma website".
+  const source = str(form, "source").slice(0, 80);
+  if (source) details.source = source;
+
   if (Object.keys(errors).length) return { ok: false, errors };
-  return { ok: true, lead: { kind, name, phone, email, details } };
+  return { ok: true, lead: { kind: kind as LeadKind, name, phone, email, details } };
 }

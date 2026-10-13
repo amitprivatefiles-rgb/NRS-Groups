@@ -71,6 +71,9 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
         <a href={filterHref({ kind: "creator" })} className={kind === "creator" ? "active" : ""}>
           Creators
         </a>
+        <a href={filterHref({ kind: "partner" })} className={kind === "partner" ? "active" : ""}>
+          Partners
+        </a>
       </nav>
 
       {leads.length === 0 ? (
