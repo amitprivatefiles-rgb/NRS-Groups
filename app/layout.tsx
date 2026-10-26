@@ -7,10 +7,10 @@ export const metadata: Metadata = {
     template: "%s | NRS Group",
   },
   description:
-    "NRS Group, Kolkata: hotels, restaurants, construction, real estate and leisure since 2014. Invest in our upcoming Tarapith and Sundarban projects or pitch your idea.",
+    "NRS Group, Kolkata: hotels, restaurants, construction, real estate, manufacturing and leisure. Invest in our upcoming Tarapith and Sundarban projects or pitch your idea.",
   openGraph: {
     title: "NRS Group",
-    description: "Hospitality, food & dining, real estate and leisure since 2014. Invest with NRS Group.",
+    description: "Hospitality, food & dining, real estate, manufacturing and leisure. Invest with NRS Group.",
     type: "website",
     locale: "en_IN",
     images: [{ url: "/images/brand/nrs-emblem.png", width: 600, height: 292, alt: "NRS Group" }],

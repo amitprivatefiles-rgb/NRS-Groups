@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { BrandShowcase, CtaBand, FactRow, Marquee, ProjectCard, QuoteBand, SectionHead, StatBand } from "@/components/Blocks";
 import { Arrow, VerticalIcon } from "@/components/Icons";
-import LeadForm from "@/components/LeadForm";
 import Photo, { BrandLogo } from "@/components/Photo";
-import { approach, destinations, founder, group, liveBrands, projects, verticals } from "@/lib/content";
+import { approach, destinations, founder, group, liveBrands, numberWord, projects, verticals } from "@/lib/content";
 
 export default function Home() {
   const brands = liveBrands();
@@ -12,33 +11,48 @@ export default function Home() {
 
   return (
     <>
-      {/* ---------- Hero + investor / creator form ---------- */}
-      <section className="hero">
-        <Photo src="/images/home/hero.jpg" alt="" art="palace" className="hero__bg" priority />
-        <div className="container hero__grid">
-          <div className="hero__copy">
-            <p className="eyebrow">NRS Group · Since 2014 · Kolkata</p>
-            <h1>
-              Building India&rsquo;s next landmarks in <em>hospitality</em>
-            </h1>
-            <p className="lead">{group.intro}</p>
-            <div className="hero__highlight">
-              <span className="pulse" aria-hidden="true" />
-              <p>
-                <strong>Now building:</strong> a tower-style hotel on 20 bighas at Tarapith.{" "}
-                <Link href="/projects/tarapith">See the project</Link>
-              </p>
-            </div>
-            <div className="hero__brands">
-              <span>Home of</span>
-              {brands.map((b) => (
-                <Link key={b.slug} href={`/brands/${b.slug}`} aria-label={b.name}>
-                  <BrandLogo slug={b.slug} name={b.name} />
-                </Link>
-              ))}
-            </div>
+      {/* ---------- Hero: plain background with a silver NRS pattern ---------- */}
+      <section className="hero hero--plain">
+        <div className="hero__pattern" aria-hidden="true">
+          {Array.from({ length: 14 }).map((_, i) => (
+            <span key={i}>{"NRS · ".repeat(16)}</span>
+          ))}
+        </div>
+        <div className="container hero__center">
+          <p className="hero__tag">
+            <span>NRS Group</span>
+            <i aria-hidden="true">·</i>
+            <span>Estd. {group.established}</span>
+            <i aria-hidden="true">·</i>
+            <span>Kolkata</span>
+          </p>
+          <h1>
+            Building India&rsquo;s next landmarks, <em>across industries</em>
+          </h1>
+          <p className="lead">{group.intro}</p>
+          <div className="btn-row hero__ctas">
+            <a href="#invest" className="btn btn--silver">
+              Invest with us
+            </a>
+            <a href="#pitch" className="btn btn--outline-light">
+              I have an idea
+            </a>
           </div>
-          <LeadForm />
+          <div className="hero__highlight">
+            <span className="pulse" aria-hidden="true" />
+            <p>
+              <strong>Now building:</strong> a tower-style hotel on 20 bighas at Tarapith.{" "}
+              <Link href="/projects/tarapith">See the project</Link>
+            </p>
+          </div>
+          <div className="hero__brands">
+            <span>Home of</span>
+            {brands.map((b) => (
+              <Link key={b.slug} href={`/brands/${b.slug}`} aria-label={b.name}>
+                <BrandLogo slug={b.slug} name={b.name} />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -101,7 +115,7 @@ export default function Home() {
         <div className="container">
           <SectionHead
             eyebrow="Business verticals"
-            title="Six businesses, one group"
+            title={`${numberWord(verticals.length)} businesses, one group`}
             intro="Each NRS company supports the others: the construction arm builds what hospitality runs, and food & dining serves it."
             center
           />
@@ -224,6 +238,7 @@ export default function Home() {
           <article className="pillar--accent" data-reveal>
             <p className="eyebrow">Our philosophy</p>
             <p className="pillar__text pillar__text--lg">&ldquo;{group.philosophy}&rdquo;</p>
+            <p className="pillar__meaning">{group.philosophyMeaning}</p>
           </article>
         </div>
       </section>
@@ -249,7 +264,7 @@ export default function Home() {
         </div>
       </section>
 
-      <QuoteBand quote={group.philosophy} by="The NRS philosophy" role="Since 2014" />
+      <QuoteBand quote={group.philosophy} by="The NRS philosophy" role={group.philosophyMeaning} />
 
       <CtaBand />
     </>

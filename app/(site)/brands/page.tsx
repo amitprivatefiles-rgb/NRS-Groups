@@ -55,7 +55,7 @@ export default function BrandsPage() {
         </div>
       </section>
 
-      <QuoteBand quote={group.philosophy} by="The NRS standard" role="Across every brand" />
+      <QuoteBand quote={group.philosophy} by="The NRS philosophy" role={group.philosophyMeaning} />
 
       <section className="section section--alt">
         <div className="container">

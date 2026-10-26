@@ -4,7 +4,7 @@ import { startTransition, useActionState, useEffect, useState } from "react";
 import { submitLead, type SubmitState } from "@/app/actions";
 import { options } from "@/lib/content";
 
-type Kind = "investor" | "creator";
+export type Kind = "investor" | "creator";
 
 function Field({
   label,
@@ -60,8 +60,8 @@ function SubmitButton({ kind, pending }: { kind: Kind; pending: boolean }) {
 
 const initial: SubmitState = { status: "idle" };
 
-export default function LeadForm() {
-  const [kind, setKind] = useState<Kind>("investor");
+export default function LeadForm({ initialKind = "investor", inline = true }: { initialKind?: Kind; inline?: boolean }) {
+  const [kind, setKind] = useState<Kind>(initialKind);
   // Bumped to remount the form with fresh action state (new tab, "send another").
   const [round, setRound] = useState(0);
   const choose = (k: Kind) => {
@@ -71,6 +71,7 @@ export default function LeadForm() {
 
   // Lets section CTAs ("Invest in Tarapith", "I have an idea") open the right tab.
   useEffect(() => {
+    if (!inline) return;
     const onHash = () => {
       if (location.hash === "#invest") choose("investor");
       if (location.hash === "#pitch") choose("creator");
@@ -81,7 +82,7 @@ export default function LeadForm() {
   }, []);
 
   return (
-    <div className="lead-card" id="enquire">
+    <div className="lead-card" id={inline ? "enquire" : undefined}>
       <div className="tabs" role="tablist" aria-label="Enquiry type">
         <button role="tab" type="button" aria-selected={kind === "investor"} className={kind === "investor" ? "active" : ""} onClick={() => choose("investor")}>
           I want to invest

@@ -1,6 +1,8 @@
+import EnquiryModal from "@/components/EnquiryModal";
 import { RevealObserver } from "@/components/Motion";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +14,8 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <main id="main">{children}</main>
       <SiteFooter />
       <RevealObserver />
+      <EnquiryModal />
+      <WhatsAppButton />
     </>
   );
 }

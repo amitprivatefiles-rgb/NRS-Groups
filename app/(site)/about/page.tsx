@@ -8,7 +8,7 @@ import { approach, companies, founder, group, liveBrands, verticals } from "@/li
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The story, vision, mission and companies of NRS Group, a Kolkata-based group in hospitality, food & dining, construction, real estate and leisure.",
+    "The story, vision, mission and companies of NRS Group, a Kolkata-based group in hospitality, food & dining, construction, real estate, manufacturing and leisure.",
 };
 
 export default function AboutPage() {
@@ -65,6 +65,7 @@ export default function AboutPage() {
             <article className="pillar--accent" data-reveal>
               <p className="eyebrow">Our philosophy</p>
               <p className="pillar__text pillar__text--lg">&ldquo;{group.philosophy}&rdquo;</p>
+              <p className="pillar__meaning">{group.philosophyMeaning}</p>
             </article>
           </div>
         </div>
@@ -92,7 +93,7 @@ export default function AboutPage() {
           <SectionHead
             eyebrow="Group structure"
             title="How NRS Group is organised"
-            intro="One group leadership, six business verticals, and the companies and brands within them."
+            intro={`One group leadership, ${verticals.length} business verticals, and the companies and brands within them.`}
             center
           />
           <div className="org" data-reveal>

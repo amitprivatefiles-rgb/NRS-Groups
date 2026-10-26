@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { brands, contact, projects, verticals } from "@/lib/content";
+import { brands, contact, group, projects, verticals } from "@/lib/content";
 
 type MenuItem = { href: string; label: string; note?: string };
 type Menu = { href: string; label: string; items?: MenuItem[]; intro?: string };
@@ -22,7 +22,7 @@ const menus: Menu[] = [
   {
     href: "/businesses",
     label: "Businesses",
-    intro: "Six verticals, one standard.",
+    intro: `${verticals.length} verticals, one standard.`,
     items: verticals.map((v) => ({ href: `/businesses/${v.slug}`, label: v.title, note: v.company.split(" · ")[0] })),
   },
   {
@@ -40,15 +40,12 @@ const menus: Menu[] = [
       { href: "/upcoming-plan", label: "Upcoming Plan", note: "The road ahead" },
     ],
   },
-  { href: "/invest", label: "Invest" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Logo({ footer }: { footer?: boolean }) {
   return (
     <span className={`brand${footer ? " brand--footer" : ""}`}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/brand/nrs-emblem.png" alt="" className="brand__emblem" width={600} height={292} />
       <span className="brand__mark">NRS</span>
       <span className="brand__name">Group</span>
     </span>
@@ -78,7 +75,10 @@ export default function SiteHeader() {
     <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
       <div className="topbar">
         <div className="container topbar__inner">
-          <span>Hospitality · Food & Dining · Construction · Real Estate · Leisure</span>
+          <span className="topbar__left">
+            <span className="topbar__estd">ESTD. {group.established}</span>
+            <span className="topbar__sectors">Hospitality · Food & Dining · Construction · Manufacturing · Real Estate · Leisure</span>
+          </span>
           <span className="topbar__contact">
             <a href={contact.phoneHref}>{contact.phone}</a>
             <a href={`mailto:${contact.email}`}>{contact.email}</a>

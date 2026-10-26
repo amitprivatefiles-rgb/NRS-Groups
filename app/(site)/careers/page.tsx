@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { PageHero, QuoteBand, SectionHead, StatBand } from "@/components/Blocks";
 import Photo from "@/components/Photo";
+import Video from "@/components/Video";
+import { existsSync } from "fs";
+import path from "path";
 import { careers, contact, group } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -34,7 +37,7 @@ export default function CareersPage() {
             <p className="eyebrow">Life at NRS</p>
             <h2>Quality services demand quality people</h2>
             <p className="lead">
-              That is the group&rsquo;s philosophy, and it starts with the people we hire. Whether you welcome guests, run a kitchen, manage a site or keep the numbers straight, you are part of one group with one standard.
+              That belief starts with the people we hire. Whether you welcome guests, run a kitchen, manage a site or keep the numbers straight, you are part of one group with one standard.
             </p>
             <p className="muted">
               As NRS opens new hotels and restaurants, our people grow with it. New properties need experienced hands, and we look inside the group first.
@@ -46,6 +49,16 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
+
+      {/* Careers video (from Ravi sir): add public/videos/careers.mp4 and it appears here. */}
+      {existsSync(path.join(process.cwd(), "public/videos/careers.mp4")) && (
+        <section className="section section--alt">
+          <div className="container narrow">
+            <SectionHead eyebrow="Life at NRS" title="See what it is like to work with us" center />
+            <Video src="/videos/careers.mp4" poster="/images/careers/video-poster.jpg" title="Working at NRS Group" />
+          </div>
+        </section>
+      )}
 
       <StatBand dark />
 
@@ -81,7 +94,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <QuoteBand quote={group.philosophy} by="NRS Group" role="Our philosophy" />
+      <QuoteBand quote={group.philosophy} by="The NRS philosophy" role={group.philosophyMeaning} />
 
       <section className="section">
         <div className="container apply" data-reveal>

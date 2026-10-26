@@ -7,21 +7,27 @@
 
 export const FOUNDED_YEAR = 2014;
 
+const NUMBER_WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
+export const numberWord = (n: number) => NUMBER_WORDS[n] ?? String(n);
+
 export type ArtKind = "palace" | "glass" | "lantern" | "tower" | "mangrove" | "skyline" | "compass";
 
 export const group = {
   name: "NRS Group",
   legalLine: "NRS Hospitality Pvt. Ltd. · GSTIN 21AAHCN2872F1ZQ",
-  tagline: "Hospitality · Food & Dining · Real Estate · Leisure",
+  tagline: "Hospitality · Food & Dining · Real Estate · Manufacturing · Leisure",
   intro:
-    "A Kolkata-born group that has grown since 2014 from a single business centre into hotels, restaurants, construction, real estate and leisure, with quality service as the first priority.",
+    "A Kolkata-born group that has grown since 2014 from a single business centre into hotels, restaurants, construction, real estate, manufacturing and leisure, with quality service as the first priority.",
   description:
     "A highly reputed corporate group that has made a strong footprint in various sectors.",
   vision:
     "To be accredited as one of the esteemed organizations whose hunger for excellence is proven by the quality of their service.",
   mission:
     "To act collectively as a group so that all the business wings can have maximum benefits from our passionate effort.",
-  philosophy: "Quality services demand quality people.",
+  philosophy: "Zindagi Mein Khush Raho",
+  philosophyMeaning: "Be happy in life.",
+  // Group founding year shown in the top bar (client note). Company dates elsewhere stay as dated facts.
+  established: "2008",
   story: [
     "NRS Group began in 2014 with NRS Business Centre Pvt. Ltd. in Kolkata's Salt Lake Sector V. It became the corporate backbone for everything that followed.",
     "Since then the group has grown into hotel and hospitality services, restaurants, construction, real estate management and leisure. Its flagship, NRS Royal Palace, is a sea-facing hotel on Puri's New Marine Drive.",
@@ -48,17 +54,15 @@ export const group = {
 };
 
 export const contact = {
-  // TODO(meeting): confirm current head office: Godrej Genesis 1308 or Shaila Tower.
-  addressLines: [
-    "Godrej Genesis Building, 13th Floor, Unit 1308",
-    "EP & GP Block, Sector V, Salt Lake",
-    "Kolkata 700091, West Bengal",
-  ],
+  // TODO(client): full street address and PIN code for Shaila Tower.
+  addressLines: ["Shaila Tower", "Salt Lake", "Kolkata, West Bengal"],
   phone: "+91 70444 70888",
   phoneHref: "tel:+917044470888",
   email: "info@nrsgroups.in",
   hours: "Monday – Saturday, 10:00 AM – 7:00 PM",
-  mapUrl: "https://maps.google.com/?q=Godrej+Genesis+Sector+V+Salt+Lake+Kolkata",
+  mapUrl: "https://maps.google.com/?q=Shaila+Tower+Salt+Lake+Kolkata",
+  // WhatsApp chat with the director (client note).
+  whatsappHref: "https://wa.me/917044470888?text=" + encodeURIComponent("Hello, I would like to speak with the director of NRS Group."),
   social: [
     { label: "LinkedIn", href: "https://www.linkedin.com/company/nrsgroup" },
     { label: "Facebook", href: "https://www.facebook.com/nrsgroupkolkata" },
@@ -66,7 +70,7 @@ export const contact = {
   ],
 };
 
-export type VerticalKey = "hospitality" | "food" | "realestate" | "construction" | "leisure" | "business";
+export type VerticalKey = "hospitality" | "food" | "realestate" | "construction" | "manufacturing" | "leisure" | "business";
 
 export type Vertical = {
   key: VerticalKey;
@@ -169,6 +173,28 @@ export const verticals: Vertical[] = [
     image: "/images/verticals/real-estate.jpg",
   },
   {
+    key: "manufacturing",
+    slug: "manufacturing",
+    title: "Manufacturing",
+    company: "NRS Manufacturing",
+    body: "NRS Manufacturing, the group's newest company, takes NRS into manufacturing.",
+    headline: "The group's newest venture",
+    long: [
+      "NRS Manufacturing is the newest company in NRS Group, extending the group from services into manufacturing.",
+      // TODO(client): what NRS Manufacturing makes, where, and since when.
+      "More about the products and facilities will be shared here soon.",
+    ],
+    points: [
+      { title: "Newest company", body: "The latest addition to the NRS family of companies." },
+      { title: "One group", body: "Backed by the experience of the group's other businesses." },
+      { title: "Same standard", body: "Run to the same quality-first standard as every NRS company." },
+      { title: "More soon", body: "Details of products and facilities will be announced." },
+    ],
+    brandSlugs: [],
+    art: "skyline",
+    image: "/images/verticals/manufacturing.jpg",
+  },
+  {
     key: "leisure",
     slug: "leisure",
     title: "Leisure",
@@ -221,6 +247,8 @@ export const companies = [
   { name: "NRS Hospitality Pvt. Ltd.", year: "2020", sector: "Hotels & hospitality" },
   { name: "Buono Gusto Foods", year: "2020", sector: "Food & dining" },
   { name: "Verma Holiday Hotel & Resorts", year: "2023", sector: "Hotels & resorts" },
+  // TODO(client): founding year of NRS Manufacturing.
+  { name: "NRS Manufacturing", year: "New", sector: "Manufacturing" },
 ];
 
 export type BrandSection = { title: string; items: { name: string; detail: string }[] };
@@ -634,7 +662,7 @@ export const options = {
     "Above ₹5 crore",
   ],
   preferredProject: ["Tarapith", "Sundarban", "Any project"],
-  sector: ["Hospitality", "Food & Dining", "Real Estate", "Leisure", "Other"],
+  sector: ["Hospitality", "Food & Dining", "Real Estate", "Manufacturing", "Leisure", "Other"],
   structure: ["Equity %", "Fixed return / interest", "Partnership", "Open to discuss"],
   timeline: ["Immediately", "Within 3 months", "3 – 6 months", "6 – 12 months", "Just exploring"],
   stage: ["Idea", "Prototype", "Running business"],

@@ -3,11 +3,11 @@ import Link from "next/link";
 import { CtaBand, PageHero, SectionHead, StatBand } from "@/components/Blocks";
 import { Arrow, VerticalIcon } from "@/components/Icons";
 import Photo from "@/components/Photo";
-import { approach, verticals } from "@/lib/content";
+import { approach, numberWord, verticals } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Our Businesses",
-  description: "NRS Group's six business verticals: hospitality, food & dining, construction, real estate, leisure and business services.",
+  description: "NRS Group's business verticals: hospitality, food & dining, construction, real estate, manufacturing, leisure and business services.",
 };
 
 export default function BusinessesPage() {
@@ -15,8 +15,8 @@ export default function BusinessesPage() {
     <>
       <PageHero
         eyebrow="Our businesses"
-        title="Six verticals, one standard of service"
-        intro="NRS Group works across hospitality, food & dining, construction, real estate, leisure and business services, and each business strengthens the others."
+        title={`${numberWord(verticals.length)} verticals, one standard of service`}
+        intro="NRS Group works across hospitality, food & dining, construction, real estate, manufacturing, leisure and business services, and each business strengthens the others."
         crumbs={[{ href: "/businesses", label: "Businesses" }]}
         image="/images/businesses/hero.jpg"
         art="skyline"

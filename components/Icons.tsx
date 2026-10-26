@@ -25,6 +25,12 @@ const paths: Record<VerticalKey, React.ReactNode> = {
       <path d="M5 10v11h14V10M10 21v-6h4v6" />
     </>
   ),
+  manufacturing: (
+    <>
+      <path d="M3 21h18M4 21V11l5 3v-3l5 3v-3l5 3V5h-3v6" />
+      <path d="M7 17h2M11 17h2M15 17h2" />
+    </>
+  ),
   leisure: (
     <>
       <circle cx="12" cy="10" r="6" />
