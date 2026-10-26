@@ -13,13 +13,8 @@ export default function Home() {
     <>
       {/* ---------- Hero: plain background with a silver NRS pattern ---------- */}
       <section className="hero hero--plain">
-        {/* Currency-style micro-lettering: a fine "NRS" field plus a few security-thread bands. */}
+        {/* Currency-style micro-lettering: a fine repeating "NRS" field. */}
         <div className="hero__micro" aria-hidden="true" />
-        <div className="hero__threads" aria-hidden="true">
-          {[0, 1, 2].map((i) => (
-            <span key={i}>{"NRS ".repeat(400)}</span>
-          ))}
-        </div>
         <div className="container hero__center">
           <p className="hero__tag">
             <span>NRS Group</span>

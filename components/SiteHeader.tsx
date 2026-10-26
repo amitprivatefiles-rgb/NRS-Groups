@@ -46,8 +46,13 @@ const menus: Menu[] = [
 export function Logo({ footer }: { footer?: boolean }) {
   return (
     <span className={`brand${footer ? " brand--footer" : ""}`}>
-      <span className="brand__mark">NRS</span>
-      <span className="brand__name">Group</span>
+      {/* Official NRS winged-shield emblem (from the group's logo artwork). */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/images/brand/nrs-emblem.png" alt="" className="brand__emblem" width={600} height={292} />
+      <span className="brand__text">
+        <span className="brand__mark">NRS</span>
+        <span className="brand__name">Group</span>
+      </span>
     </span>
   );
 }
@@ -56,8 +61,13 @@ export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // Mobile: which sub-menu is expanded (accordion).
+  const [expanded, setExpanded] = useState<string | null>(null);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    setOpen(false);
+    setExpanded(null);
+  }, [pathname]);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -66,7 +76,16 @@ export default function SiteHeader() {
   }, []);
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    document.body.classList.toggle("menu-open", open);
+    if (!open) setExpanded(null);
   }, [open]);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const isMobile = () => typeof window !== "undefined" && window.matchMedia("(max-width: 980px)").matches;
 
   const isActive = (m: Menu) =>
     pathname === m.href || pathname.startsWith(m.href + "/") || (m.items?.some((i) => pathname === i.href) ?? false);
@@ -100,8 +119,20 @@ export default function SiteHeader() {
         </button>
         <nav id="site-nav" className={`site-nav${open ? " is-open" : ""}`} aria-label="Main">
           {menus.map((m) => (
-            <div key={m.href} className={`nav-item${m.items ? " has-menu" : ""}`}>
-              <Link href={m.href} className="nav-link" aria-current={isActive(m) ? "page" : undefined}>
+            <div key={m.href} className={`nav-item${m.items ? " has-menu" : ""}${expanded === m.href ? " is-expanded" : ""}`}>
+              <Link
+                href={m.href}
+                className="nav-link"
+                aria-current={isActive(m) ? "page" : undefined}
+                aria-expanded={m.items ? expanded === m.href : undefined}
+                onClick={(e) => {
+                  // On phones a parent item opens its sub-menu instead of navigating.
+                  if (m.items && isMobile()) {
+                    e.preventDefault();
+                    setExpanded((x) => (x === m.href ? null : m.href));
+                  }
+                }}
+              >
                 {m.label}
                 {m.items && (
                   <svg viewBox="0 0 10 6" aria-hidden="true" className="caret">
@@ -116,6 +147,11 @@ export default function SiteHeader() {
                     <p>{m.intro}</p>
                   </div>
                   <ul className="mega__list">
+                    <li className="mega__overview">
+                      <Link href={m.href}>
+                        <strong>{m.label}: overview</strong>
+                      </Link>
+                    </li>
                     {m.items.map((i) => (
                       <li key={i.href}>
                         <Link href={i.href}>
