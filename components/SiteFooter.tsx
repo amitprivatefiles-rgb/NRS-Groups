@@ -10,7 +10,7 @@ export default function SiteFooter() {
           <Logo footer />
           <p>{group.intro}</p>
           <p className="site-footer__motto">&ldquo;{group.philosophy}&rdquo;</p>
-          <p className="site-footer__meaning">{group.philosophyMeaning} · Estd. {group.established}</p>
+          <p className="site-footer__meaning">{group.philosophyMeaning} · Since {group.established}</p>
           <p className="socials">
             {contact.social.map((s) => (
               <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer">

@@ -24,7 +24,7 @@ export default function Home() {
           <p className="hero__tag">
             <span>NRS Group</span>
             <i aria-hidden="true">·</i>
-            <span>Estd. {group.established}</span>
+            <span>Since {group.established}</span>
             <i aria-hidden="true">·</i>
             <span>Kolkata</span>
           </p>

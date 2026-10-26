@@ -31,8 +31,8 @@ export const group = {
   philosophyMeaning: "Be happy in life.",
   // Source: brochure, "Meet the Founder": his life mantra.
   philosophyBy: "Life mantra of Mr. Ravinandan Prasad Verma",
-  // Group founding year shown in the top bar (client note). Company dates elsewhere stay as dated facts.
-  established: "2008",
+  // Founding year (brochure: NRS Group founded in 2014).
+  established: String(FOUNDED_YEAR),
   story: [
     "Gone are the days when one had to belong to a traditional business family to run a business. With passion, dedication and hard work, along with modern strategies, big things can be achieved in a short time.",
     "With this mindset, NRS Group was founded by Mr. Ravinandan Prasad Verma in 2014 with NRS Business Centre Pvt. Ltd. Within a few years it set its wings into business centres, hospitality, real estate, stock markets and entertainment, a diversified group headquartered in Kolkata.",
