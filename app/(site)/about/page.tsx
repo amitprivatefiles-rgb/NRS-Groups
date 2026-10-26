@@ -87,6 +87,44 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Brand philosophy + team */}
+      <section className="section">
+        <div className="container split">
+          <div data-reveal>
+            <p className="eyebrow">Brand philosophy</p>
+            <h2>Quality services demand quality people</h2>
+            <p className="lead">{group.brandPhilosophy}</p>
+          </div>
+          <div className="team-box" data-reveal>
+            <p className="eyebrow">Team NRS</p>
+            <p className="team-box__num">{group.team.size}</p>
+            <p>{group.team.intro}</p>
+            <p className="team-box__motto">&ldquo;{group.team.motto}&rdquo;</p>
+            <p className="muted">{group.team.body}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Making an impact */}
+      <section className="section section--dark section--pattern">
+        <div className="container">
+          <SectionHead
+            eyebrow="Making an impact"
+            title="Growing the business, and the society around it"
+            intro="NRS Group strives to do what's right, not only for the growth of its brands but for the betterment of society as a whole."
+            light
+          />
+          <div className="impact">
+            {group.impact.map((i) => (
+              <article key={i.title} className="impact__item" data-reveal>
+                <h3>{i.title}</h3>
+                <p>{i.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Group structure */}
       <section className="section">
         <div className="container">
@@ -211,7 +249,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <QuoteBand quote={founder.quote} by={founder.name} role={founder.title} />
+      <section className="section">
+        <div className="container narrow center-block" data-reveal>
+          <p className="eyebrow">The road ahead</p>
+          <h2>10–15 chains of hotels &amp; restaurants</h2>
+          <p className="lead">{group.futurePlan}</p>
+        </div>
+      </section>
+
+      <QuoteBand quote={group.philosophy} by={group.philosophyBy} role={group.philosophyMeaning} />
       <CtaBand />
     </>
   );

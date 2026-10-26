@@ -77,7 +77,7 @@ export default function SiteHeader() {
         <div className="container topbar__inner">
           <span className="topbar__left">
             <span className="topbar__estd">ESTD. {group.established}</span>
-            <span className="topbar__sectors">Hospitality · Food & Dining · Construction · Manufacturing · Real Estate · Leisure</span>
+            <span className="topbar__sectors">Hospitality · Food & Dining · Business Centres · Construction · Entertainment · Manufacturing</span>
           </span>
           <span className="topbar__contact">
             <a href={contact.phoneHref}>{contact.phone}</a>

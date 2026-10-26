@@ -15,24 +15,51 @@ export type ArtKind = "palace" | "glass" | "lantern" | "tower" | "mangrove" | "s
 export const group = {
   name: "NRS Group",
   legalLine: "NRS Hospitality Pvt. Ltd. · GSTIN 21AAHCN2872F1ZQ",
-  tagline: "Hospitality · Food & Dining · Real Estate · Manufacturing · Leisure",
+  tagline: "Hospitality · Food & Dining · Real Estate · Entertainment · Manufacturing",
   intro:
-    "A Kolkata-born group that has grown since 2014 from a single business centre into hotels, restaurants, construction, real estate, manufacturing and leisure, with quality service as the first priority.",
+    "A Kolkata-based group founded by Mr. Ravinandan Prasad Verma, with 500+ people across hotels, restaurants, business centres, construction, real estate and entertainment in five cities.",
   description:
     "A highly reputed corporate group that has made a strong footprint in various sectors.",
   vision:
-    "To be accredited as one of the esteemed organizations whose hunger for excellence is proven by the quality of their service.",
+    "To be accredited as one of the esteemed organizations whose hunger for excellence is proven by the quality of their service and whose thirst for betterment keeps it a step ahead of the rest of its competitors.",
   mission:
-    "To act collectively as a group so that all the business wings can have maximum benefits from our passionate effort.",
+    "To act collectively as a group so that all the business wings can have maximum benefits from our passionate effort. The target is always to provide state-of-the-art services to the clients where quality is the first priority.",
+  // Brand philosophy (brochure).
+  brandPhilosophy:
+    "Quality services demand quality people. With this mindset, we spearhead our brands to those who strive for quality and strengthen us to deliver world-class services. We take every piece of feedback to heart and work towards performing better.",
   philosophy: "Zindagi Mein Khush Raho",
   philosophyMeaning: "Be happy in life.",
+  // Source: brochure, "Meet the Founder": his life mantra.
+  philosophyBy: "Life mantra of Mr. Ravinandan Prasad Verma",
   // Group founding year shown in the top bar (client note). Company dates elsewhere stay as dated facts.
   established: "2008",
   story: [
-    "NRS Group began in 2014 with NRS Business Centre Pvt. Ltd. in Kolkata's Salt Lake Sector V. It became the corporate backbone for everything that followed.",
-    "Since then the group has grown into hotel and hospitality services, restaurants, construction, real estate management and leisure. Its flagship, NRS Royal Palace, is a sea-facing hotel on Puri's New Marine Drive.",
-    "Every business works to the same standard: state-of-the-art service for the client, with quality first. The group's own construction arm builds its new hotels, and its management team runs them once they open.",
+    "Gone are the days when one had to belong to a traditional business family to run a business. With passion, dedication and hard work, along with modern strategies, big things can be achieved in a short time.",
+    "With this mindset, NRS Group was founded by Mr. Ravinandan Prasad Verma in 2014 with NRS Business Centre Pvt. Ltd. Within a few years it set its wings into business centres, hospitality, real estate, stock markets and entertainment, a diversified group headquartered in Kolkata.",
+    "With an extended family of more than 500 people, NRS Group is present in Puri, Gangtok, Digha, Darjeeling and Kolkata. Building trust is at the heart of every business, and the whole team strives to build enduring bonds with its people.",
   ],
+  // Brochure: future plan.
+  futurePlan:
+    "NRS Group's future plan is 10–15 chains of hotels and restaurants, and a sustainable future built on multiple real estate projects across the nation.",
+  team: {
+    size: "500+",
+    intro:
+      "Team NRS is dedicated to helping clients achieve their objectives, creating an innovative environment and making a difference. Today we are a team of 500 specialised, well-trained people.",
+    motto: "No work is too difficult.",
+    body: "Every employee is trained to deliver with the philosophy that no work is too difficult. They are eager to assist guests and well equipped to handle even the most difficult and unforeseen challenges, building warm, long-lasting relationships.",
+  },
+  // Brochure: "Making an Impact".
+  impact: [
+    {
+      title: "COVID-19 relief",
+      body: "During the pandemic, NRS Group distributed food to 500–800 people in Newtown and Salt Lake, Kolkata.",
+    },
+    {
+      title: "Children's health & education",
+      body: "We distribute food, medicine, books and stationery at an orphanage for children living with AIDS, because children are the building blocks of tomorrow's India.",
+    },
+  ],
+  cities: ["Kolkata", "Puri", "Darjeeling", "Gangtok", "Digha"],
   values: [
     {
       title: "Quality first",
@@ -96,16 +123,17 @@ export const verticals: Vertical[] = [
     headline: "Hotels where the setting is memorable and the service more so",
     long: [
       "Hospitality is the heart of NRS Group. NRS Hospitality Pvt. Ltd. was set up in 2020 and opened the group's flagship, NRS Royal Palace, on Puri's New Marine Drive the same year.",
-      "In 2023 the group added a second hospitality brand, Verma Holiday Hotel & Resorts. Our hotels are in places people already travel to, such as temple towns, beaches and nature reserves, so every property starts with steady demand.",
+      "Xenia, the ancient Greek idea of hospitality, means guest-friendship rooted in generosity and reciprocity. Taking inspiration from it, NRS Hospitality strives to give guests heartfelt service and build trust that works for both sides.",
+      "Today the group runs hotels by the sea in Puri and Digha and in the hills of Darjeeling and Gangtok, places people already travel to, so every property starts with steady demand.",
       "Next comes the group's largest project yet, a tower-style hotel at Tarapith, followed by an eco-luxury resort in the Sundarban.",
     ],
     points: [
-      { title: "Destination-led", body: "Properties in Puri, Tarapith and the Sundarban, where travellers already go." },
+      { title: "Destination-led", body: "Hotels in Puri, Digha, Darjeeling and Gangtok, with Tarapith and the Sundarban next." },
       { title: "Full-service", body: "Rooms, restaurants, banquets and lawns under one roof." },
       { title: "Events & weddings", body: "Halls and lawns for family functions, weddings and corporate meetings." },
       { title: "In-house delivery", body: "Built by our construction arm and run by our own hospitality team." },
     ],
-    brandSlugs: ["nrs-royal-palace"],
+    brandSlugs: ["nrs-royal-palace", "nrs-hillton", "nrs-norling-retreat", "nrs-kingston"],
     art: "palace",
     image: "/images/verticals/hospitality.jpg",
   },
@@ -113,7 +141,7 @@ export const verticals: Vertical[] = [
     key: "food",
     slug: "food-and-dining",
     title: "Food & Dining",
-    company: "Bistro-Y Foods · Buono Gusto Foods",
+    company: "Bistro Y Food Pvt. Ltd. · Buono Gusto Foods Pvt. Ltd.",
     body: "Restaurants, bars and hotel dining: Bistro Y in Salt Lake, HakkaLand in Madhyamgram, and the restaurants at Royal Palace.",
     headline: "Restaurants and bars Kolkata keeps coming back to",
     long: [
@@ -134,11 +162,12 @@ export const verticals: Vertical[] = [
     key: "construction",
     slug: "construction",
     title: "Construction",
-    company: "Realtiven Construction Pvt. Ltd.",
-    body: "The in-house construction arm, now building the group's tower hotel at Tarapith.",
+    company: "Realtiven Construction Pvt. Ltd. (NRS Construction)",
+    body: "Residential and commercial spaces, and the in-house builder of the group's tower hotel at Tarapith.",
     headline: "We build what we run",
     long: [
-      "Realtiven Construction Pvt. Ltd. was founded in 2019 as the group's own construction company.",
+      "NRS Construction (Realtiven Construction Pvt. Ltd.) strives to provide luxurious and wholesome living, with residential and commercial spaces that beautify the city's skyline, and the best of design, aesthetics, technology and architecture.",
+      "We create homes that are part of a neighbourhood. Our Classic Homes help buyers find their dream lifestyle, using rich insight into customer preferences. Our aim is to be a leading real estate developer known for quality, technical competence and customer satisfaction.",
       "Because construction is in-house, NRS controls quality, cost and timelines from the foundation to the finishing. Realtiven is now building the group's tower-style hotel at Tarapith.",
     ],
     points: [
@@ -197,22 +226,23 @@ export const verticals: Vertical[] = [
   {
     key: "leisure",
     slug: "leisure",
-    title: "Leisure",
-    company: "Eco Amusement Dam Park Pvt. Ltd.",
-    body: "Leisure and amusement experiences for families and travellers.",
-    headline: "Experiences for families and travellers",
+    title: "Entertainment & Leisure",
+    company: "NRS Dream Entertainment Pvt. Ltd. · Eco Amusement Dam Park Pvt. Ltd.",
+    body: "Sin City, a new night club in Sector V, and leisure experiences for families and travellers.",
+    headline: "Nights to remember, days out for families",
     long: [
-      "Eco Amusement Dam Park Pvt. Ltd. was founded in 2019 as the group's leisure and amusement venture.",
+      "NRS Dream Entertainment brings Sin City to Kolkata: a new night club in Sector V with non-stop music, multi-cuisine food and a waterside setting.",
+      "Eco Amusement Dam Park Pvt. Ltd., founded in 2019, is the group's leisure and amusement venture.",
       "Leisure works alongside hospitality: places where families spend the day add to the reasons to stay the night.",
     ],
     points: [
+      { title: "Sin City", body: "A new night club in Sector V. Let the Sin begin." },
       { title: "Family leisure", body: "Experiences designed for all ages." },
-      { title: "Eco focus", body: "Built around the natural landscape." },
       { title: "Tourism synergy", body: "Adds to the group's hospitality destinations." },
       { title: "Since 2019", body: "Part of the group's diversification." },
     ],
-    brandSlugs: [],
-    art: "mangrove",
+    brandSlugs: ["sin-city"],
+    art: "glass",
     image: "/images/verticals/leisure.jpg",
   },
   {
@@ -220,11 +250,12 @@ export const verticals: Vertical[] = [
     slug: "business-services",
     title: "Business Services",
     company: "NRS Business Centre Pvt. Ltd.",
-    body: "Business-centre solutions in Kolkata's Salt Lake Sector V, the group's corporate backbone since 2014.",
+    body: "Premium serviced office infrastructure and business support in Salt Lake Sector V, the group's first company.",
     headline: "The corporate backbone of the group",
     long: [
       "NRS Business Centre Pvt. Ltd. was incorporated in 2014 in Salt Lake Sector V, Kolkata's IT and business district.",
-      "It offers business-centre solutions to companies and serves as the corporate home of NRS Group, where the group's finance, administration and strategy are run.",
+      "NRS Business Centre is a provider of premium serviced office infrastructure. Seeing a gap in the service, flexibility and transparency on offer in the business-centre market, it set out to give business owners world-class infrastructure, business support services and value-engineered products.",
+      "Its workspaces are well equipped with facilities that care for people's physical and mental well-being, fully functional and hassle-free. It is also the corporate home of NRS Group.",
     ],
     points: [
       { title: "Prime location", body: "Salt Lake Sector V, Kolkata's business district." },
@@ -240,12 +271,13 @@ export const verticals: Vertical[] = [
 
 export const companies = [
   { name: "Shaila Realty Management", year: "2012", sector: "Real estate management" },
-  { name: "Bistro-Y Foods", year: "2013", sector: "Food & dining" },
+  { name: "Bistro Y Food Pvt. Ltd.", year: "2013", sector: "Food & dining · Bistro Y" },
   { name: "NRS Business Centre Pvt. Ltd.", year: "2014", sector: "Business services" },
   { name: "Realtiven Construction Pvt. Ltd.", year: "2019", sector: "Construction" },
   { name: "Eco Amusement Dam Park Pvt. Ltd.", year: "2019", sector: "Leisure" },
   { name: "NRS Hospitality Pvt. Ltd.", year: "2020", sector: "Hotels & hospitality" },
-  { name: "Buono Gusto Foods", year: "2020", sector: "Food & dining" },
+  { name: "Buono Gusto Foods Pvt. Ltd.", year: "2020", sector: "Food & dining · HakkaLand" },
+  { name: "NRS Dream Entertainment Pvt. Ltd.", year: "2022", sector: "Entertainment · Sin City" },
   { name: "Verma Holiday Hotel & Resorts", year: "2023", sector: "Hotels & resorts" },
   // TODO(client): founding year of NRS Manufacturing.
   { name: "NRS Manufacturing", year: "New", sector: "Manufacturing" },
@@ -256,7 +288,7 @@ export type BrandSection = { title: string; items: { name: string; detail: strin
 export type Brand = {
   slug: string;
   name: string;
-  vertical: "Hospitality" | "Food & Dining";
+  vertical: "Hospitality" | "Food & Dining" | "Entertainment";
   art: ArtKind;
   location: string;
   address?: string;
@@ -295,7 +327,7 @@ export const brands: Brand[] = [
       { value: "3", label: "Restaurants" },
       { value: "200", label: "Guests on the lawn" },
     ],
-    highlights: ["Sea-facing rooms", "Rooftop dining", "Swimming pool", "Banquet & lawn"],
+    highlights: ["Infinity swimming pool", "Sea-facing balcony & terrace", "Bar & royal hookah", "Multi-cuisine restaurant", "Lush green lawn", "Conference hall & board room"],
     sections: [
       {
         title: "Dining",
@@ -391,20 +423,88 @@ export const brands: Brand[] = [
     gallery: ["The dining room", "Sizzlers", "The bar", "Chinese & Thai"],
     confirmed: true,
   },
-  // TODO(meeting): confirm these are still NRS properties before publishing.
+  {
+    slug: "nrs-hillton",
+    name: "NRS Hillton Hotel",
+    vertical: "Hospitality",
+    art: "palace",
+    location: "Digha, West Bengal",
+    summary: "A sea-facing hotel in the heart of the beach town of Digha, beside the calm and serene waves of the Bay of Bengal.",
+    description: [
+      "Digha sits between the Himalayas and the Bay of Bengal. In the heart of this beach town, NRS Hillton stands beside calm and serene waves.",
+      "Whether guests come for work or a holiday, the hotel offers luxury, convenience and connectivity, with warm, personal service that makes every stay memorable.",
+    ],
+    facts: [
+      { value: "48", label: "Luxurious rooms" },
+      { value: "Sea", label: "Facing rooms" },
+      { value: "24×7", label: "Room service" },
+      { value: "Pool", label: "Swimming pool" },
+    ],
+    highlights: ["Sea-facing rooms", "Swimming pool", "Conference room", "Sumptuous dining", "24×7 free Wi-Fi"],
+    sections: [],
+    confirmed: true,
+  },
   {
     slug: "nrs-norling-retreat",
     name: "NRS Norling Retreat",
     vertical: "Hospitality",
     art: "skyline",
     location: "Darjeeling, West Bengal",
-    summary: "A 3-star retreat near Circuit House with valley and mountain views.",
-    description: [],
-    facts: [],
-    highlights: [],
+    summary: "A hill retreat among tea gardens, overlooking the Kanchenjunga.",
+    description: [
+      "Set in the midst of the mountains, surrounded by tea gardens and overlooking the Kanchenjunga, NRS Norling Retreat has tastefully decorated rooms with modern amenities.",
+      "Darjeeling Mall, Mahakal Temple and the Jhandi Dara sunset point are a stone's throw away, with easy access from Darjeeling railway station.",
+    ],
+    facts: [
+      { value: "Valley", label: "View rooms" },
+      { value: "Multi", label: "Cuisine restaurant" },
+      { value: "24×7", label: "Room service" },
+    ],
+    highlights: ["Valley-view rooms", "Kanchenjunga views", "Multi-cuisine restaurant", "24×7 free Wi-Fi"],
     sections: [],
-    confirmed: false,
+    confirmed: true,
   },
+  {
+    slug: "nrs-kingston",
+    name: "NRS Kingston Hotel",
+    vertical: "Hospitality",
+    art: "skyline",
+    location: "Gangtok, Sikkim",
+    summary: "Traditional Sikkimese architecture in the hills of Gangtok, with views of Mount Kanchenjunga.",
+    description: [
+      "Wake up to the magnificent view of Mount Kanchenjunga. Set amidst the hills of Gangtok, NRS Kingston is designed in authentic Sikkimese architecture, with every modern amenity, from banquets to a bar and lounge.",
+      "Its banquets are curated for everything from professional conferences to personal parties, turning precious moments into lasting memories.",
+    ],
+    facts: [
+      { value: "Mountain", label: "View rooms" },
+      { value: "Rooftop", label: "Lounge" },
+      { value: "Banquet", label: "For social events" },
+    ],
+    highlights: ["Rooftop lounge", "Mountain-view rooms", "Bar", "Banquet & conference room", "24×7 room service"],
+    sections: [],
+    confirmed: true,
+  },
+  {
+    slug: "sin-city",
+    name: "Sin City",
+    vertical: "Entertainment",
+    art: "glass",
+    location: "Sector V, Kolkata · Opening soon",
+    summary: "A new night club from NRS Group in Sector V, with non-stop music, multi-cuisine food and a pulsating waterside. Let the Sin begin.",
+    description: [
+      "Sin City is a new, exciting night club from NRS Group, opening in Sector V, Kolkata, with non-stop music and multi-cuisine food, beside a pulsating waterside.",
+      "It's time to join the wildness: Sin City calls all the party lovers of Kolkata to make every night memorable and colourful.",
+    ],
+    facts: [
+      { value: "Soon", label: "Opening" },
+      { value: "Non-stop", label: "Music" },
+      { value: "Multi", label: "Cuisine" },
+    ],
+    highlights: ["Night club", "Non-stop music", "Multi-cuisine", "Waterside"],
+    sections: [],
+    confirmed: true,
+  },
+  // Not in the brochure; keep hidden until confirmed.
   {
     slug: "nrs-royal-grand",
     name: "NRS Royal Grand",
@@ -529,9 +629,10 @@ export const founder = {
   quote:
     "The target is always to provide state-of-the-art services to the clients where quality is the first priority.",
   bio: [
-    "R. P. Verma began his career as an ordinary employee at a small organisation. The experience taught him how businesses really run, and he soon moved into small ventures of his own.",
-    "Over the following decade he built NRS Group one business at a time: real estate management in 2012, the group's first food venture in 2013, and NRS Business Centre in Kolkata in 2014, which became the corporate backbone.",
-    "Construction and leisure followed in 2019. In 2020 he launched NRS Hospitality and opened the flagship NRS Royal Palace in Puri. In 2023 he added a new hospitality brand, Verma Holiday Hotel & Resorts. Today he leads the group's largest project yet, a tower hotel at Tarapith.",
+    "One of the youngest and most energetic entrepreneurs, Mr. Ravinandan Prasad Verma brings immense industry knowledge. After completing his education in Ranchi, Jharkhand, he moved to Kolkata and started as an employee in a boutique organisation. His mission was always to go one step further.",
+    "He ventured into business opportunities of his own, and in 2014 formed NRS Business Centre Pvt. Ltd. The beginning of NRS Group paved the way for his vision, and since then he has never looked back.",
+    "Construction and leisure followed in 2019, and in 2020 he opened the flagship NRS Royal Palace in Puri. Today NRS Group runs hotels in Puri, Digha, Darjeeling and Gangtok, restaurants and a night club in Kolkata, and is building its largest project yet, a tower hotel at Tarapith.",
+    "He believes in sharing smiles. His life mantra is \"Zindagi mein khush raho\".",
   ],
   principles: [
     "Quality is the first priority in every business.",
@@ -539,7 +640,7 @@ export const founder = {
     "Each business wing should benefit the others.",
   ],
   timeline: [
-    { year: "Early years", text: "Starts as an employee at a small organisation, then moves into small business ventures" },
+    { year: "Early years", text: "Educated in Ranchi, Jharkhand; moves to Kolkata and starts as an employee in a boutique organisation" },
     { year: "2012", text: "Shaila Realty Management, real estate management" },
     { year: "2013", text: "Bistro-Y Foods, the group's first food venture" },
     { year: "2014", text: "NRS Business Centre Pvt. Ltd., Kolkata, the corporate backbone" },
@@ -555,9 +656,9 @@ export function stats() {
   const years = new Date().getFullYear() - FOUNDED_YEAR;
   return [
     { value: `${years}+`, label: "Years of growth" },
-    { value: `${verticals.length}`, label: "Business verticals" },
-    { value: `${companies.length}`, label: "Group companies" },
-    { value: `${liveBrands().length}`, label: "Operating brands" },
+    { value: "500+", label: "Team NRS" },
+    { value: `${liveBrands().filter((b) => b.vertical === "Hospitality").length}`, label: "Hotels" },
+    { value: "5", label: "Cities" },
   ];
 }
 
@@ -614,8 +715,11 @@ export const approach = [
 ];
 
 export const destinations = [
-  { name: "Kolkata", region: "West Bengal", role: "Head office · Bistro Y · HakkaLand", status: "Operating" },
+  { name: "Kolkata", region: "West Bengal", role: "Head office · Business Centre · Bistro Y · HakkaLand · Sin City", status: "Operating" },
   { name: "Puri", region: "Odisha", role: "NRS Royal Palace", status: "Operating" },
+  { name: "Digha", region: "West Bengal", role: "NRS Hillton Hotel", status: "Operating" },
+  { name: "Darjeeling", region: "West Bengal", role: "NRS Norling Retreat", status: "Operating" },
+  { name: "Gangtok", region: "Sikkim", role: "NRS Kingston Hotel", status: "Operating" },
   { name: "Tarapith", region: "Birbhum, West Bengal", role: "Tower hotel on 20 bighas", status: "Under construction" },
   { name: "Sundarban", region: "West Bengal", role: "NRS Royal Classic eco-resort", status: "In planning" },
 ];

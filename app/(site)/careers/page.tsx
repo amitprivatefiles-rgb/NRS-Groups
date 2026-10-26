@@ -39,6 +39,7 @@ export default function CareersPage() {
             <p className="lead">
               That belief starts with the people we hire. Whether you welcome guests, run a kitchen, manage a site or keep the numbers straight, you are part of one group with one standard.
             </p>
+            <p className="muted">{group.team.body}</p>
             <p className="muted">
               As NRS opens new hotels and restaurants, our people grow with it. New properties need experienced hands, and we look inside the group first.
             </p>
@@ -94,7 +95,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <QuoteBand quote={group.philosophy} by="The NRS philosophy" role={group.philosophyMeaning} />
+      <QuoteBand quote={group.philosophy} by={group.philosophyBy} role={group.philosophyMeaning} />
 
       <section className="section">
         <div className="container apply" data-reveal>

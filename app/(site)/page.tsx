@@ -13,9 +13,11 @@ export default function Home() {
     <>
       {/* ---------- Hero: plain background with a silver NRS pattern ---------- */}
       <section className="hero hero--plain">
-        <div className="hero__pattern" aria-hidden="true">
-          {Array.from({ length: 14 }).map((_, i) => (
-            <span key={i}>{"NRS · ".repeat(16)}</span>
+        {/* Currency-style micro-lettering: a fine "NRS" field plus a few security-thread bands. */}
+        <div className="hero__micro" aria-hidden="true" />
+        <div className="hero__threads" aria-hidden="true">
+          {[0, 1, 2].map((i) => (
+            <span key={i}>{"NRS ".repeat(400)}</span>
           ))}
         </div>
         <div className="container hero__center">
@@ -264,7 +266,7 @@ export default function Home() {
         </div>
       </section>
 
-      <QuoteBand quote={group.philosophy} by="The NRS philosophy" role={group.philosophyMeaning} />
+      <QuoteBand quote={group.philosophy} by={group.philosophyBy} role={group.philosophyMeaning} />
 
       <CtaBand />
     </>

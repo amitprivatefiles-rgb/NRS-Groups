@@ -66,7 +66,7 @@ export default function FounderPage() {
         </div>
       </section>
 
-      <QuoteBand quote={group.philosophy} by="The NRS philosophy" role={group.philosophyMeaning} />
+      <QuoteBand quote={group.philosophy} by={group.philosophyBy} role={group.philosophyMeaning} />
 
       {/* Journey */}
       <section className="section section--alt">

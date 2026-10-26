@@ -7,19 +7,20 @@ import { group, liveBrands, projects } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Our Brands",
-  description: "NRS Royal Palace, Bistro Y and HakkaLand: the hotels and restaurants of NRS Group.",
+  description: "NRS Royal Palace, NRS Hillton, Norling Retreat, Kingston, Bistro Y, HakkaLand and Sin City: the hotels, restaurants and night club of NRS Group.",
 };
 
 export default function BrandsPage() {
   const brands = liveBrands();
   const hospitality = brands.filter((b) => b.vertical === "Hospitality");
   const food = brands.filter((b) => b.vertical === "Food & Dining");
+  const entertainment = brands.filter((b) => b.vertical === "Entertainment");
 
   return (
     <>
       <PageHero
         eyebrow="Our brands"
-        title="A portfolio of hotels and restaurants"
+        title="Hotels, restaurants and nightlife"
         intro="Every NRS brand is run to one standard: quality first, from the front desk to the kitchen."
         crumbs={[{ href: "/brands", label: "Our Brands" }]}
         image="/images/brands/hero.jpg"
@@ -44,8 +45,8 @@ export default function BrandsPage() {
         <div className="container">
           <SectionHead
             eyebrow="Hospitality"
-            title="Hotels where the setting is memorable and the service more so"
-            intro="Our hotels are in destinations people already love to visit, with rooms, restaurants and event spaces under one roof."
+            title="Hotels by the sea and in the hills"
+            intro="Puri, Digha, Darjeeling and Gangtok: destinations people already love, with rooms, restaurants and event spaces under one roof."
           />
           <div className="showcases">
             {hospitality.map((b, i) => (
@@ -55,7 +56,7 @@ export default function BrandsPage() {
         </div>
       </section>
 
-      <QuoteBand quote={group.philosophy} by="The NRS philosophy" role={group.philosophyMeaning} />
+      <QuoteBand quote={group.philosophy} by={group.philosophyBy} role={group.philosophyMeaning} />
 
       <section className="section section--alt">
         <div className="container">
@@ -71,6 +72,23 @@ export default function BrandsPage() {
           </div>
         </div>
       </section>
+
+      {entertainment.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <SectionHead
+              eyebrow="Entertainment"
+              title="Let the Sin begin"
+              intro="NRS Dream Entertainment brings a new night club to Sector V, Kolkata."
+            />
+            <div className="showcases">
+              {entertainment.map((b, i) => (
+                <BrandShowcase key={b.slug} brand={b} index={hospitality.length + food.length + i} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <StatBand dark />
 
